@@ -141,6 +141,32 @@ public:
     }
 };
 ```
+```java
+class Solution {
+public int findMin(int[] nums) {
+int l = 0;
+int r = nums.length - 1;
+
+
+// l < r ensures we converge to one minimum element
+ while (l < r) {
+  int mid = l + (r - l) / 2;
+  if (nums[mid] > nums[r]) {
+  // Minimum is in the right half
+    l = mid + 1;
+  } else {
+  // Mid can be the minimum
+  r = mid;
+  }
+ }
+
+
+ // l == r pointing to minimum element
+ return nums[l];
+ }
+}
+
+```
 
 ---
 
