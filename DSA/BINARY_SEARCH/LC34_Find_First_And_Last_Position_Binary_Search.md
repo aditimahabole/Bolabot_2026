@@ -105,46 +105,44 @@ public:
 
 ```java
 class Solution {
-    private int findLeftMost(int[] nums, int target) {
-        int l = 0, r = nums.length - 1;
-        int ans = -1;
-
-        while (l <= r) {
-            int mid = l + (r - l) / 2;
-            if (nums[mid] == target) {
-                ans = mid;       // possible answer
-                r = mid - 1;     // search left
-            } else if (nums[mid] < target) {
-                l = mid + 1;
-            } else {
-                r = mid - 1;
+    public int findLeftMost(int[] nums, int target){
+        int l = 0;
+        int r = nums.length - 1;
+        int lefty = -1;
+        while(l<=r){
+            int mid = l+(r-l)/2;
+            if(nums[mid] == target){
+                lefty = mid;//update left pos as it can be possible ans
+                r = mid-1;//move leftwards to find leftmost pos
+            }else if(nums[mid]<target){
+                l = mid+1;
+            }else{
+                r = mid-1;
             }
         }
-        return ans;
+        return lefty;
     }
-
-    private int findRightMost(int[] nums, int target) {
-        int l = 0, r = nums.length - 1;
-        int ans = -1;
-
-        while (l <= r) {
-            int mid = l + (r - l) / 2;
-            if (nums[mid] == target) {
-                ans = mid;       // possible answer
-                l = mid + 1;     // search right
-            } else if (nums[mid] < target) {
-                l = mid + 1;
-            } else {
-                r = mid - 1;
+    public int findRightMost(int[] nums, int target){
+        int l = 0;
+        int r = nums.length - 1;
+        int righty = -1;
+        while(l<=r){
+            int mid = l+(r-l)/2;
+            if(nums[mid] == target){
+                righty = mid;//update left pos as it can be possible ans
+                l = mid+1;//move rightwards to find rightmost pos
+            }else if(nums[mid]<target){
+                l = mid+1;
+            }else{
+                r = mid-1;
             }
         }
-        return ans;
+        return righty;
     }
-
     public int[] searchRange(int[] nums, int target) {
         return new int[] {
-            findLeftMost(nums, target),
-            findRightMost(nums, target)
+            findLeftMost(nums,target),
+            findRightMost(nums,target)
         };
     }
 }
