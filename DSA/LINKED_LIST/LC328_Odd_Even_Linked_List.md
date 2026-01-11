@@ -1,14 +1,3 @@
-Understood 👍
-Below is **ONE SINGLE `.md` FILE**, **everything included**, clean and ready to **copy-paste in one go**.
-No splitting, no extra explanations outside the file.
-
----
-
-```
-LC328_Odd_Even_Linked_List.md
-```
-
-````md
 # LC328 – Odd Even Linked List
 
 ## 🔹 Problem Statement
